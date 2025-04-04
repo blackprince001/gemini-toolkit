@@ -24,6 +24,7 @@ func NewToolKitBaseService(cfg types.ToolKitConfig) *ToolKitBaseService {
 
 func (tool *ToolKitBaseService) GetToolKitClient(ctx context.Context) (*genai.Client, error) {
 	client, err := genai.NewClient(ctx, &genai.ClientConfig{
+		Backend: genai.BackendGeminiAPI,
 		APIKey: tool.Config.ApiKey,
 	})
 	if err != nil {
